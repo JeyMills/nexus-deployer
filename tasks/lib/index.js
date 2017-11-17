@@ -91,6 +91,10 @@ var createAndUploadArtifacts = function (options, done) {
                 curlOptions.push('--insecure');
             }
 
+            if (options.repositoryId) {
+                curlOptions.push('-F r=' + options.repositoryId);
+            }
+
             var execOptions = {};
             options.cwd && (execOptions.cwd = options.cwd);
 
